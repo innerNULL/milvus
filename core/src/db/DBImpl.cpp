@@ -988,7 +988,7 @@ DBImpl::DeleteVector(const std::string& collection_id, IDNumber vector_id) {
 }
 
 Status
-DBImpl::DeleteVector(const std::string& collection_id, IDNumber vector_id, 
+DBImpl::DeleteVector(const std::string& collection_id, IDNumber vector_id,
         const std::vector<std::string>& partition_tag) {
     IDNumbers ids;
     ids.push_back(vector_id);
@@ -1020,7 +1020,7 @@ DBImpl::DeleteVectors(const std::string& collection_id, IDNumbers vector_ids) {
 }
 
 Status
-DBImpl::DeleteVectors(const std::string& collection_id, IDNumbers vector_ids, 
+DBImpl::DeleteVectors(const std::string& collection_id, IDNumbers vector_ids,
         const std::vector<std::string>& partition_tags) {
     if (!initialized_.load(std::memory_order_acquire)) {
         return SHUTDOWN_ERROR;
@@ -1041,7 +1041,7 @@ DBImpl::DeleteVectors(const std::string& collection_id, IDNumbers vector_ids,
         record.partition_tag = "";
         if (record.data_size == 1 && partition_tags.size() == 1) {
             record.partition_tag = partition_tags[0];
-        } 
+        }
 
         status = ExecWalRecord(record);
     }

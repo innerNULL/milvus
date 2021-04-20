@@ -745,7 +745,8 @@ GrpcRequestHandler::DeleteByID(::grpc::ServerContext* context, const ::milvus::g
     // step 2: delete vector
     /// TODO: Think twice
     ///Status status = request_handler_.DeleteByID(GetContext(context), request->collection_name(), vector_ids);
-    Status status = request_handler_.DeleteByID(GetContext(context), request->collection_name(), vector_ids, partitions);
+    Status status = request_handler_.DeleteByID(
+        GetContext(context), request->collection_name(), vector_ids, partitions);
 
     LOG_SERVER_INFO_ << LogOut("Request [%s] %s end.", GetContext(context)->RequestID().c_str(), __func__);
     SET_RESPONSE(response, status, context);

@@ -35,9 +35,9 @@ DeleteByIDRequest::DeleteByIDRequest(const std::shared_ptr<milvus::server::Conte
 }
 
 DeleteByIDRequest::DeleteByIDRequest(const std::shared_ptr<milvus::server::Context>& context,
-                                     const std::string& collection_name, const std::vector<int64_t>& vector_ids, 
+                                     const std::string& collection_name, const std::vector<int64_t>& vector_ids,
                                      const std::vector<std::string>& partition_list)
-    : BaseRequest(context, BaseRequest::kDeleteByID), collection_name_(collection_name), vector_ids_(vector_ids), 
+    : BaseRequest(context, BaseRequest::kDeleteByID), collection_name_(collection_name), vector_ids_(vector_ids),
       partition_list_(partition_list) {
 }
 
@@ -49,7 +49,7 @@ DeleteByIDRequest::Create(const std::shared_ptr<milvus::server::Context>& contex
 
 BaseRequestPtr
 DeleteByIDRequest::Create(const std::shared_ptr<milvus::server::Context>& context, const std::string& collection_name,
-                          const std::vector<int64_t>& vector_ids, 
+                          const std::vector<int64_t>& vector_ids,
                           const std::vector<std::string>& partition_list) {
     return std::shared_ptr<BaseRequest>(new DeleteByIDRequest(context, collection_name, vector_ids, partition_list));
 }

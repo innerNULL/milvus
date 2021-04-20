@@ -189,7 +189,7 @@ RequestHandler::DeleteByID(const std::shared_ptr<Context>& context, const std::s
 
 Status
 RequestHandler::DeleteByID(const std::shared_ptr<Context>& context, const std::string& collection_name,
-                           const std::vector<int64_t>& vector_ids, 
+                           const std::vector<int64_t>& vector_ids,
                            const std::vector<std::string>& partition_tags) {
     BaseRequestPtr request_ptr = DeleteByIDRequest::Create(context, collection_name, vector_ids, partition_tags);
     RequestScheduler::ExecRequest(request_ptr);
